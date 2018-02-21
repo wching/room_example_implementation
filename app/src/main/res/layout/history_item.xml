@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="8dp">
+
+    <TextView
+        android:id="@+id/destinationTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAlignment="textStart"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:text="DESTINATION"/>
+
+    <TextView
+        android:id="@+id/startDateTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/destinationTextView"
+        tools:text="01/01/2018"/>
+
+    <TextView
+        android:id="@+id/endDateTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/destinationTextView"
+        tools:text="01/03/2018"/>
+
+    <TextView
+        android:id="@+id/roomsTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/startDateTextView"
+        tools:text="4"/>
+
+</android.support.constraint.ConstraintLayout>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.kohlyr.roomexample.MainActivity">
+
+    <Button
+        android:id="@+id/add_history_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Add History"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <Button
+        android:id="@+id/delete_last_history_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Delete Last History"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <Button
+        android:id="@+id/insert_history_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ADD ALL TRIPS"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/add_history_button"/>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/history_recycler"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        app:layout_constraintTop_toBottomOf="@id/insert_history_button"/>
+
+</android.support.constraint.ConstraintLayout>
