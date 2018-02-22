@@ -7,30 +7,35 @@ import android.content.Context
 import com.kohlyr.roomexample.database.model.Room
 import com.kohlyr.roomexample.database.model.Trip
 import com.kohlyr.roomexample.database.utils.Converters
+import android.arch.persistence.db.SupportSQLiteDatabase
+import android.arch.persistence.room.migration.Migration
 
-@Database(entities = [(Trip::class), (Room::class)], version = 1, exportSchema = false)
+
+
+@Database(entities = [Trip::class, Room::class], version = 1, exportSchema = false)
 @TypeConverters(Converters::class)
 abstract class AppDatabase : RoomDatabase() {
-    abstract fun tripDao(): TripDao
+	abstract fun tripDao(): TripDao
 
-    companion object {
-        private var INSTANCE: AppDatabase? = null
+	companion object {
+		private var INSTANCE: AppDatabase? = null
 
-        fun getInstance(context: Context): AppDatabase? {
-            if (INSTANCE == null) {
-                synchronized(AppDatabase::class) {
-                    INSTANCE = android.arch.persistence.room.Room
-                            .databaseBuilder(context.applicationContext,
-                                    AppDatabase::class.java, "trips.db")
-                            .allowMainThreadQueries()
-                            .build()
-                }
-            }
-            return INSTANCE
-        }
+		fun getInstance(context: Context): AppDatabase? {
+			if (INSTANCE == null) {
+				synchronized(AppDatabase::class) {
+					INSTANCE = android.arch.persistence.room.Room
+							.databaseBuilder(context.applicationContext,
+									AppDatabase::class.java, "trips.db")
+							.allowMainThreadQueries()
+							.build()
+				}
+			}
+			return INSTANCE
+		}
 
-        fun destroyInstance() {
-            INSTANCE = null
-        }
-    }
+
+		fun destroyInstance() {
+			INSTANCE = null
+		}
+	}
 }

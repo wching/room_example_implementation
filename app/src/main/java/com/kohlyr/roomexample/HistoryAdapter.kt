@@ -10,7 +10,7 @@ import kotlinx.android.synthetic.main.history_item.view.endDateTextView
 import kotlinx.android.synthetic.main.history_item.view.roomsTextView
 import kotlinx.android.synthetic.main.history_item.view.startDateTextView
 
-class HistoryAdapter(private val historyList: ArrayList<Trip>) :
+class HistoryAdapter(private val historyList: MutableList<Trip>) :
         RecyclerView.Adapter<HistoryAdapter.HistoryViewHolder>() {
 
     override fun getItemCount(): Int = historyList.size
@@ -43,8 +43,8 @@ class HistoryAdapter(private val historyList: ArrayList<Trip>) :
 
         fun bind(trip: Trip) {
             destinationTextView.text = trip.trip
-            startDateTextView.text = trip.startDate.toString()
-            endDateTextView.text = trip.endDate.toString()
+//            startDateTextView.text = trip.startDate.toString()
+//            endDateTextView.text = trip.endDate.toString()
 //            roomsTextView.text = trip.room.size.toString()
         }
     }

@@ -3,28 +3,32 @@ package com.kohlyr.roomexample.database.model
 import android.arch.persistence.room.ColumnInfo
 import android.arch.persistence.room.Entity
 import android.arch.persistence.room.PrimaryKey
+import android.arch.persistence.room.TypeConverters
 import android.os.Parcelable
+import com.kohlyr.roomexample.database.utils.Converters
 import kotlinx.android.parcel.Parcelize
-import java.util.*
+import java.util.Calendar
+import java.util.Date
 
-@Entity
+@Entity(tableName = "trips")
 @Parcelize
 data class Trip(
 
-        @PrimaryKey(autoGenerate = true)
-        val id: Int = 0,
+		@PrimaryKey(autoGenerate = true)
+		var id: Long = 0,
 
-        @ColumnInfo(name = "trip")
-        val trip: String = "",
+		@ColumnInfo(name = "trip")
+		var trip: String = "",
 
-        @ColumnInfo(name = "main_image_url")
-        val mainImageUrl: String = "",
+		@ColumnInfo(name = "main_image_url")
+		var mainImageUrl: String = "",
 
-        @ColumnInfo(name = "start_date")
-        val startDate: Date = Date(),
+		@ColumnInfo(name = "start_date")
+		@TypeConverters(Converters::class)
+		var startDate: Date = Calendar.getInstance().time,
 
-        @ColumnInfo(name = "end_date")
-        val endDate: Date = Date(),
+		@ColumnInfo(name = "end_date")
+		@TypeConverters(Converters::class)
+		var endDate: Date = Calendar.getInstance().time
 
-        @ColumnInfo(name = "rooms")
-        val room: RoomList = RoomList(arrayListOf())) : Parcelable
+) : Parcelable
